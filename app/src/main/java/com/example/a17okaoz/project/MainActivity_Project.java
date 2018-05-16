@@ -135,15 +135,18 @@ public class MainActivity_Project extends AppCompatActivity {
             super.onPostExecute(o);
 
             try {
-                JSONArray mountainsberg = new JSONArray(o);
-                for (int i = 0; i < mountainsberg.length(); i++){
-                    JSONObject bergs = mountainsberg.getJSONObject(i);
+                JSONArray katter = new JSONArray(o);
+                for (int i = 0; i < katter.length(); i++){
+                    JSONObject katt = katter.getJSONObject(i);
 
-                    String name = bergs.getString("name");
-                    String location = bergs.getString("location");
-                    int height = bergs.getInt("size");
+                    String name = katt.getString("name");
+                    String company = katt.getString("company");
+                    String category = katt.getString("category");
+                    int size = katt.getInt("size");
+                    String location = katt.getString("location");
+                    String auxdata = katt.getString("auxdata");
 
-                    Kattdjur kd = new Kattdjur(name, location, height);
+                    Kattdjur kd = new Kattdjur(name,company,category,size,location,auxdata);
                     adapter.add(kd);
                 }
             } catch (JSONException e) {
